@@ -1,0 +1,124 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Product GTIN (EAN, UPC, ISBN) for WooCommerce\n"
+"POT-Creation-Date: 2018-08-10 06:42+0200\n"
+"PO-Revision-Date: 2015-06-25 17:07+0100\n"
+"Last-Translator: \n"
+"Language-Team: Emanuela Castorina <emanuela@kream.it>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.9\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=n!=1;\n"
+"X-Poedit-KeywordsList: __ ;_e;_n:1,2;__ngettext:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: includes/admin/settings/settings-wpm-product-gtin-wc.php:19
+msgid "Product GTIN"
+msgstr ""
+
+#: includes/admin/settings/settings-wpm-product-gtin-wc.php:34
+msgid "Product GTIN Settings"
+msgstr ""
+
+#: includes/admin/settings/settings-wpm-product-gtin-wc.php:36
+msgid "In this area you can set the plugin options"
+msgstr ""
+
+#: includes/admin/settings/settings-wpm-product-gtin-wc.php:41
+msgid "Label of GTIN Code"
+msgstr ""
+
+#: includes/admin/settings/settings-wpm-product-gtin-wc.php:42
+msgid "The label of code (i.e. EAN, UPC, ISBN, JAN, ITF-14) )"
+msgstr ""
+
+#: includes/admin/settings/settings-wpm-product-gtin-wc.php:44
+#: includes/class.product-gtin-wc-admin.php:56
+msgid "EAN"
+msgstr ""
+
+#: includes/admin/settings/settings-wpm-product-gtin-wc.php:51
+msgid "Public label of GTIN Code"
+msgstr ""
+
+#: includes/admin/settings/settings-wpm-product-gtin-wc.php:52
+msgid ""
+"The label that the customers will see on site before the code. (i.e. \"EAN "
+"Code:\", \"UPC:\", \"ISBN-\") )"
+msgstr ""
+
+#: includes/admin/settings/settings-wpm-product-gtin-wc.php:54
+msgid "EAN:"
+msgstr ""
+
+#: includes/admin/settings/settings-wpm-product-gtin-wc.php:60
+msgid "Show Code GTIN:"
+msgstr ""
+
+#: includes/admin/settings/settings-wpm-product-gtin-wc.php:61
+msgid "Display the code in single product page."
+msgstr ""
+
+#: includes/admin/settings/settings-wpm-product-gtin-wc.php:69
+msgid "Display the code in loop."
+msgstr ""
+
+#: includes/admin/settings/settings-wpm-product-gtin-wc.php:77
+msgid "Display the code in cart."
+msgstr ""
+
+#: includes/admin/settings/settings-wpm-product-gtin-wc.php:85
+msgid "Display the code in checkout page."
+msgstr ""
+
+#: includes/admin/settings/settings-wpm-product-gtin-wc.php:93
+msgid "Hide Code GTIN if empty"
+msgstr ""
+
+#: includes/admin/settings/settings-wpm-product-gtin-wc.php:94
+msgid "Set this option if you want hide the code when it is empty."
+msgstr ""
+
+#: includes/admin/settings/settings-wpm-product-gtin-wc.php:102
+msgid "Search by Code GTIN"
+msgstr ""
+
+#: includes/admin/settings/settings-wpm-product-gtin-wc.php:103
+msgid "Set this option if you want search products also by GTIN Code"
+msgstr ""
+
+#: includes/admin/settings/settings-wpm-product-gtin-wc.php:111
+msgid "Search by Code GTIN in Admin product search"
+msgstr ""
+
+#: includes/admin/settings/settings-wpm-product-gtin-wc.php:112
+msgid ""
+"Set this option if you want search products also by GTIN Code in "
+"administrator product list."
+msgstr ""
+
+#: includes/class.product-gtin-wc-admin.php:142
+#: includes/class.product-gtin-wc-admin.php:158
+#, php-format
+msgid "%s Code:"
+msgstr ""
+
+#: includes/class.product-gtin-wc-admin.php:145
+#, php-format
+msgid "Add the %s code for this product"
+msgstr ""
+
+#: includes/class.product-gtin-wc-admin.php:250
+msgid "Settings"
+msgstr ""
+
+#: includes/class.product-gtin-wc-frontend.php:97
+#: includes/class.product-gtin-wc-frontend.php:180
+msgid "Code EAN:"
+msgstr ""
