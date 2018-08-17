@@ -69,6 +69,8 @@ class WPM_Product_GTIN_WC_Admin {
 		if( 'yes' == get_option( 'wpm_pgw_admin_search_by_code', 'yes') ){
 			add_action( 'pre_get_posts', array( $this, 'extend_admin_search') );
 		}
+
+		add_filter( 'plugin_action_links_' . plugin_basename( WPM_PRODUCT_GTIN_WC_DIR . '/' . basename( WPM_PRODUCT_GTIN_WC_FILE ) ), array( $this, 'action_links' ) );
 	}
 
 

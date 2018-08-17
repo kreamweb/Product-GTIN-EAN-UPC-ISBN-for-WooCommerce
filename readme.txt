@@ -6,7 +6,7 @@ Tags: GTIN, EAN, ISBN, UPC, JAN, ITF-14
 Requires at least: 4.0.0
 Requires PHP: 7.0
 Tested up to: 4.9.8
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -81,6 +81,9 @@ The shortcode to show the GTIN code is `[wpm_product_gtin]` you can use these at
 9. Shortcode
 
 == Changelog ==
+= 1.0.2 - Released: Aug 17, 2018 =
+* Update: Added Settings Link on Action Links
+
 = 1.0.1 - Released: Aug 10, 2018 =
 * Update: Text domain
 
