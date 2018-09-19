@@ -89,6 +89,7 @@ class WPM_Product_GTIN_WC_Admin {
 
 			$new_query->query_vars['s'] = '';
 			$old_product_in = $query->query_vars['post__in'];
+			error_log( print_r( $old_product_in, true ) );
 			unset( $new_query->query['post__in'] );
 			unset( $new_query->query_vars['post__in'] );
 
@@ -103,11 +104,11 @@ class WPM_Product_GTIN_WC_Admin {
 
 			remove_action( 'pre_get_posts', array( $this, 'extend_admin_search' ) );
 			$result = get_posts( $new_query->query_vars );
-			$new_ids = array();
+			$new_ids = $old_product_in;
 			if ( $result ) {
-				$new_ids = array_merge( $old_product_in, $result );
+				$new_ids = array_merge( $new_ids, $result );
 			}
-
+			error_log( print_r( $new_ids, true ) );
 			//search for variation
 			$new_query->set( 'post_type', 'product_variation' );
 			$new_query->set( 'fields', 'id=>parent' );
