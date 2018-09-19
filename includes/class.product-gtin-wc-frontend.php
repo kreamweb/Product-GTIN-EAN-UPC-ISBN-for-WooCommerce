@@ -202,7 +202,7 @@ class WPM_Product_GTIN_WC_Frontend {
 			return;
 		}
 
-		$posts = $wpdb->get_col( $wpdb->prepare( "SELECT post_id FROM $wpdb->postmeta WHERE meta_key='_wpm_gtin_code' AND meta_value LIKE %s;", esc_sql( $wp_query->query['s'] ) ) );
+		$posts = $wpdb->get_col( $wpdb->prepare( "SELECT post_id FROM $wpdb->postmeta WHERE meta_key='_wpm_gtin_code' AND meta_value LIKE %s;", esc_sql( '%'.$wp_query->query['s'].'%' ) ) );
 		if ( ! $posts ) {
 			return;
 		}
