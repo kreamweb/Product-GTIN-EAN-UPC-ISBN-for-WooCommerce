@@ -78,8 +78,9 @@ The shortcode to show the GTIN code is `[wpm_product_gtin]` you can use these at
 5. GTIN Code in WooCommerce shop page.
 6. GTIN Code in WooCommerce cart page.
 7. GTIN Code in WooCommerce checkout page.
-8. WooCommerce Product List Page with GTIN Code Column.
-9. Shortcode
+8. GTIN code in WooCommerce Order Items.
+9. WooCommerce Product List Page with GTIN Code Column.
+10. Shortcode
 
 == Changelog ==
 = 1.0.3 - Released: Sep 19, 2018 =
