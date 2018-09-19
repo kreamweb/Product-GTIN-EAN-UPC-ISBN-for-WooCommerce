@@ -157,7 +157,7 @@ class WPM_Product_GTIN_WC_Admin {
 		global $thepostid;
 		$variation_object = wc_get_product( $variation->ID );
 		$value            = $variation_object->get_meta( '_wpm_gtin_code' );
-		error_log( print_r( $value, true ) );
+
 		$label            = sprintf( __( '%s Code:', 'product-gtin-ean-upc-isbn-for-woocommerce' ), $this->label );
 
 		woocommerce_wp_text_input(

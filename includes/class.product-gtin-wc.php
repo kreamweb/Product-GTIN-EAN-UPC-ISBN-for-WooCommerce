@@ -157,7 +157,7 @@ class WPM_Product_GTIN_WC {
 	public function bootstrap(){
 		// Woocommerce installation check _________________________
 		if ( ! function_exists( 'WC' ) ) {
-			add_action( 'admin_notices', 'yith_ywraq_install_woocommerce_admin_notice' );
+			add_action( 'admin_notices', array( $this, 'install_woocommerce_admin_notice') );
 			return;
 		}
 
@@ -167,6 +167,17 @@ class WPM_Product_GTIN_WC {
 			$this->frontend = WPM_Product_GTIN_WC_Frontend::instance();
 		}
 
+	}
+
+	/**
+	 * Show an Admin Notice if WooCommerce is not installed.
+	 */
+	public function install_woocommerce_admin_notice(  ) {
+		?>
+		<div class="error">
+			<p><?php _e( 'Product GTIN (EAN, UPC, ISBN) for WooCommerce is enabled but not effective. It requires WooCommerce in order to work.', 'product-gtin-ean-upc-isbn-for-woocommerce' ); ?></p>
+		</div>
+		<?php
 	}
 
 	/**
