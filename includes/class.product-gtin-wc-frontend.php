@@ -64,10 +64,34 @@ class WPM_Product_GTIN_WC_Frontend {
 
 		if( 'yes' == get_option( 'wpm_pgw_search_by_code', 'no') ){
 			add_action( 'pre_get_posts', array( $this, 'extend_product_search'),   10 );
-		//	add_action( 'woocommerce_product_query_meta_query', array( $this, 'extend_product_search_query'),   10, 2 );
 		}
 
+		if( 'yes' == get_option( 'wpm_pgw_order_item_meta', 'no') ) {
+			add_action( 'woocommerce_checkout_create_order_line_item', array( $this, 'display_order_item_data' ), 20, 3 );
+		}
+	}
 
+	/**
+	 * Display the EAN in order item meta.
+	 *
+	 * @param $item
+	 * @param $cart_item_key
+	 * @param $values
+	 * @param $order
+	 *
+	 * @since 1.0.3
+	 */
+	public function display_order_item_data( $item, $cart_item_key, $values ) {
+
+		$label = get_option( 'wpm_pgw_label', __('EAN', 'product-gtin-ean-upc-isbn-for-woocommerce' ) );
+
+		if ( isset( $values['data'] ) ) {
+			$product = $values['data'];
+			$gtin    = $product->get_meta( '_wpm_gtin_code' );
+			if ( !empty( $gtin ) ) {
+				$item->add_meta_data( $label , $gtin );
+			}
+		}
 	}
 
 	public function enqueue_styles_scripts() {

@@ -90,6 +90,15 @@ if ( ! class_exists( 'WPM_Product_GTIN_WC_Settings', false ) ) :
 				),
 
 				array(
+					'desc'     => __( 'Display the code as order item meta.', 'product-gtin-ean-upc-isbn-for-woocommerce' ),
+					'id'       => 'wpm_pgw_order_item_meta',
+					'default'  => 'no',
+					'type'     => 'checkbox',
+					'checkboxgroup' => '',
+				),
+
+
+				array(
 					'title'    => __( 'Hide Code GTIN if empty', 'product-gtin-ean-upc-isbn-for-woocommerce' ),
 					'desc'     => __( 'Set this option if you want hide the code when it is empty.', 'product-gtin-ean-upc-isbn-for-woocommerce' ),
 					'id'       => 'wpm_pgw_hide_code_empty',
