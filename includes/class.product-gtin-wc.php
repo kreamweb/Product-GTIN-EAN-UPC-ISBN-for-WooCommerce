@@ -125,6 +125,8 @@ class WPM_Product_GTIN_WC {
 		$this->includes_path = $this->plugin_path . trailingslashit( 'includes' );
 		$this->load_dependencies();
 		$this->hooks();
+
+		add_filter( 'woocommerce_rest_prepare_product_object', array( $this, 'custom_products_api_data'), 90, 2 );
 	}
 
 	private function hooks(){
@@ -133,7 +135,7 @@ class WPM_Product_GTIN_WC {
 		//set locale
 		add_action( 'init', array( $this, 'set_locale' ) );
 
-    }
+	}
 
 
 	/**
@@ -174,9 +176,9 @@ class WPM_Product_GTIN_WC {
 	 */
 	public function install_woocommerce_admin_notice(  ) {
 		?>
-		<div class="error">
-			<p><?php _e( 'Product GTIN (EAN, UPC, ISBN) for WooCommerce is enabled but not effective. It requires WooCommerce in order to work.', 'product-gtin-ean-upc-isbn-for-woocommerce' ); ?></p>
-		</div>
+        <div class="error">
+            <p><?php _e( 'Product GTIN (EAN, UPC, ISBN) for WooCommerce is enabled but not effective. It requires WooCommerce in order to work.', 'product-gtin-ean-upc-isbn-for-woocommerce' ); ?></p>
+        </div>
 		<?php
 	}
 
@@ -225,5 +227,19 @@ class WPM_Product_GTIN_WC {
 	}
 
 
+	/**
+	 * @param $response
+	 * @param $post
+	 *
+	 * @return mixed
+	 */
+	public function custom_products_api_data( $response, $post ) {
+		// retrieve a custom field and add it to API response
+		if( is_a( $post, 'WC_Product') ){
+			$response->data['ean_code'] = $post->get_meta( '_wpm_gtin_code' );
+		}
+
+		return $response;
+	}
 
 }

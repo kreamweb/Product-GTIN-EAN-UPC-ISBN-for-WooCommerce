@@ -222,7 +222,7 @@ class WPM_Product_GTIN_WC_Frontend {
 	public function extend_product_search( $wp_query  ) {
 		global $wpdb;
 
-		if( !isset( $wp_query->query['s'] ) || !isset( $wp_query->query['post_type'] ) || $wp_query->query['post_type'] != 'product'){
+		if( !isset( $wp_query->query['s'] ) ){
 			return;
 		}
 
