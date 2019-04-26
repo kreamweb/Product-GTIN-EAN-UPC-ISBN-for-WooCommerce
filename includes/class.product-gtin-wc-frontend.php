@@ -47,7 +47,7 @@ class WPM_Product_GTIN_WC_Frontend {
 
 		add_shortcode('wpm_product_gtin', array( $this, 'product_gtin_shortcode') );
 
-		if( 'yes' == get_option('wpm-pgw-single-product', 'yes') ){
+		if( 'yes' == get_option('wpm_pgw_single_product', 'yes') ){
 			add_action('woocommerce_product_meta_start', array( $this, 'show_code') );
 
 			//custom styles and javascripts
