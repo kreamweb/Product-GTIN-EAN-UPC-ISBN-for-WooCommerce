@@ -127,7 +127,26 @@ class WPM_Product_GTIN_WC {
 		$this->hooks();
 
 		add_filter( 'woocommerce_rest_prepare_product_object', array( $this, 'custom_products_api_data'), 90, 2 );
+
+		//Integration with Google Product Feed
+		add_filter( 'woocommerce_gpf_custom_field_list', array( $this,'wpm_woocommerce_gpf_custom_field_list') );
 	}
+
+	/**
+     * Integration with Google Product Feed added thanks to Lee Willis.
+     *
+     * https://gist.github.com/leewillis77/a4043e2b70e0ada39132d52daae00c82
+     *
+	 * @param $list
+	 *
+	 * @return mixed
+	 */
+	public function wpm_woocommerce_gpf_custom_field_list( $list ) {
+		$list['meta:_wpm_gtin_code'] = __('GTIN field from Product GTIN for WooCommerce plugin', 'product-gtin-ean-upc-isbn-for-woocommerce');
+		return $list;
+	}
+
+
 
 	private function hooks(){
 		add_action( 'plugins_loaded', array( $this, 'bootstrap' ) );

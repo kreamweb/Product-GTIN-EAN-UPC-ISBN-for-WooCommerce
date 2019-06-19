@@ -201,7 +201,7 @@ class WPM_Product_GTIN_WC_Frontend {
 			if ( is_a( $product, 'WC_Product' ) ) {
 				$gtin = $product->get_meta( '_wpm_gtin_code' );
 				if ( ! empty( $gtin ) ) {
-					$label = get_option( 'wpm_pgw_public_label', __( "Barcode:", 'product-gtin-ean-upc-isbn-for-woocommerce' ) );
+					$label = get_option( 'wpm_pgw_public_label', __(  "Code EAN:", 'product-gtin-ean-upc-isbn-for-woocommerce' ) );
 					//to avoid double ':' char inside the cart.
 					$label = substr( $label, - 1 ) == ':' ? str_replace( ':', '', $label ) : $label;
 					$label = apply_filters( 'wpm_pgw_public_label_on_cart', $label, $cart_item );
