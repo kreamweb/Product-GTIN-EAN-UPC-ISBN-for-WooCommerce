@@ -3,7 +3,7 @@
  * Plugin Name: Product GTIN (EAN, UPC, ISBN) for WooCommerce
  * Author URI: https://emanuelacastorina.com/
  * Description: Add a Global Trade Item Number (EAN, UPC, ISBN, JAN, ITF-14) field to WooCommerce
- * Version: 1.0.6
+ * Version: 1.0.7
  * Author: Emanuela Castorina
  * Text Domain: product-gtin-ean-upc-isbn-for-woocommerce
  * Domain Path: /languages
@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Currently plugin version.
  */
 if ( ! defined( 'WPM_PRODUCT_GTIN_WC_VERSION' ) ) {
-	define( 'WPM_PRODUCT_GTIN_WC_VERSION', '1.0.6' );
+	define( 'WPM_PRODUCT_GTIN_WC_VERSION', '1.0.7' );
 }
 
 // Define WPM_PRODUCT_GTIN_WC_FILE.

@@ -6,7 +6,7 @@ Tags: GTIN, EAN, ISBN, UPC, JAN, ITF-14
 Requires at least: 4.0.0
 Requires PHP: 7.0
 Tested up to: 5.3
-Stable tag: 1.0.6
+Stable tag: 1.0.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -44,6 +44,7 @@ These type of codes are important both for selling and for tracking your product
 * Support for Schema.org/Product with an option to choose the property name to set inside the structured data
 * Option to choose the position of GTIN code inside the single product page
 * Integrated with the WooCommerce Export Products CVS tool
+* Integrated with the WooCommerce Import products from a CSV file tool
 * WooCommerce Rest API Product integration: GTIN code is passed inside the 'ean_code' field
 
 
@@ -92,10 +93,14 @@ Inside the product editor page, open the “Inventory” tab, and fill out the f
 10. Shortcode
 11. WooCommerce Export Products CVS file integration: settings
 12. WooCommerce Export Products CVS file integration: cvs sample
-13. WooCommerce Rest API product detail
-14. WooCommerce product structured data
+13. WooCommerce Import products from a CSV file: settings
+14. WooCommerce Rest API product detail
+15. WooCommerce product structured data
 
 == Changelog ==
+= 1.0.7 - Released: Jan 5, 2020 =
+*  New: Added the product GTIN field inside the "WooCommerce Import products from a CSV file" section. The name of the column is getting from your plugin settings.
+
 = 1.0.6 - Released: Jan 5, 2020 =
 *  New: Support for WordPress 5.3
 *  New: Support for WooCommerce 3.9

@@ -134,12 +134,8 @@ class WPM_Product_GTIN_WC {
 		//Structured data
 		add_filter( 'woocommerce_structured_data_product', array( $this,'wpm_structured_data_product') );
 
-		//Export product
-		add_filter( 'woocommerce_product_export_product_default_columns', array( $this,'export_product_default_columns') );
-		add_filter( 'woocommerce_product_export_column_names', array( $this,'export_product_default_columns') );
-		add_filter( 'woocommerce_product_export_product_column_wpm_gtin_code', array( $this,'add_gtin_to_export_data'), 10, 2 );
-
 	}
+
 
 	/**
      * Integration with Google Product Feed added thanks to Lee Willis.
@@ -268,48 +264,6 @@ class WPM_Product_GTIN_WC {
 		}
 
 		return $response;
-	}
-
-	/**
-	 * Add the GTIN code to structured data.
-	 * thanks to @stroykamarketcom
-	 * @param $data
-	 *
-	 * @return mixed
-	 */
-	public function wpm_structured_data_product( $data ) {
-		global $product;
-
-		$property          = apply_filters( 'wpm_structured_data_product_property', get_option( 'wpm_pgw_structured_data_field', 'gtin' ), $product );
-
-		$data[ $property ] = $product->get_meta( '_wpm_gtin_code' );
-
-		return $data;
-	}
-
-	/**
-	 * Add the GTIN field inside the "Export products to a CSV file" as column to export.
-	 *
-	 * @param $columns
-	 *
-	 * @return mixed
-	 */
-	public function export_product_default_columns( $columns ) {
-		$label = get_option( 'wpm_pgw_label', __('EAN', 'product-gtin-ean-upc-isbn-for-woocommerce' ) );
-		$columns['wpm_gtin_code'] = $label;
-		return $columns;
-	}
-
-	/**
-	 * Add the GTIN field value inside the CSV file.
-	 *
-	 * @param $columns
-	 *
-	 * @return mixed
-	 */
-	public function add_gtin_to_export_data( $value, $product ) {
-		$value = $product->get_meta( '_wpm_gtin_code', true, 'edit' );
-		return $value;
 	}
 
 }
