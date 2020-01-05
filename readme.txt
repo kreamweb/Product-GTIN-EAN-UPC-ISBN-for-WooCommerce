@@ -5,8 +5,8 @@ Donate link: https://paypal.me/pools/c/85ErI7sdcf
 Tags: GTIN, EAN, ISBN, UPC, JAN, ITF-14
 Requires at least: 4.0.0
 Requires PHP: 7.0
-Tested up to: 5.2
-Stable tag: 1.0.5
+Tested up to: 5.3
+Stable tag: 1.0.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -83,14 +83,20 @@ The shortcode to show the GTIN code is `[wpm_product_gtin]` you can use these at
 10. Shortcode
 
 == Changelog ==
+= 1.0.6 - Released: Jan 5, 2020 =
+*  New: Support for WordPress 5.3
+*  New: Support for WooCommerce 3.9
+*  New: Support for Schema.org/Product, added an option to choose the property name (thanks to @stroykamarketcom)
+
+
 = 1.0.5 - Released: Jun 19, 2019 =
-*  New: Support to WordPress 5.2.x
-*  New: Support to WooCommerce 3.6.x
+*  New: Support for WordPress 5.2.x
+*  New: Support for WooCommerce 3.6.x
 *  New: Integration with Google Product Feed, registers GTIN field from Product GTIN for WooCommerce plugin as a pre-population option (thanks to Lee Willis)
 *  Fix: Public label fix (thanks to davado)
 
 = 1.0.4 - Released: Oct 26, 2018 =
-*  New: Support to WooCommerce 3.5.x
+*  New: Support for WooCommerce 3.5.x
 *  New: Added 'ean_code' in WooCommerce Rest product data
 *  Fix: Search by GTIN Code with Wordpress Search Widget
 

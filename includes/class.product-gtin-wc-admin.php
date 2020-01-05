@@ -54,7 +54,7 @@ class WPM_Product_GTIN_WC_Admin {
 	public function __construct() {
 
 		$this->label = get_option( 'wpm_pgw_label', __('EAN', 'product-gtin-ean-upc-isbn-for-woocommerce' ) );
-		
+
 		add_filter( 'woocommerce_get_settings_pages', array( $this, 'add_settings_page' ) );
 		add_action( 'woocommerce_product_options_sku', array( $this, 'gtin_product_option') );
 		add_action( 'woocommerce_admin_process_product_object', array( $this, 'save_gtin_product_option') );
@@ -149,6 +149,13 @@ class WPM_Product_GTIN_WC_Admin {
 			'desc_tip'    => true,
 			'description' => sprintf( __( 'Add the %s code for this product', 'product-gtin-ean-upc-isbn-for-woocommerce' ), $this->label ),
 		) );
+		woocommerce_wp_text_input( array(
+			'id'          => '_wpm_gtin_code_label',
+			'label'       =>  sprintf( __( 'Override %s Code Label:', 'product-gtin-ean-upc-isbn-for-woocommerce' ), $this->label ),
+			'placeholder' => '',
+			'desc_tip'    => true,
+			'description' => __( 'Change the general label code for this product.', 'product-gtin-ean-upc-isbn-for-woocommerce' ),
+		) );
 		echo '</div>';
 	}
 
@@ -159,8 +166,10 @@ class WPM_Product_GTIN_WC_Admin {
 		global $thepostid;
 		$variation_object = wc_get_product( $variation->ID );
 		$value            = $variation_object->get_meta( '_wpm_gtin_code' );
+		$value_label      = $variation_object->get_meta( '_wpm_gtin_code_label' );
 
 		$label            = sprintf( __( '%s Code:', 'product-gtin-ean-upc-isbn-for-woocommerce' ), $this->label );
+		$label_label      = sprintf( __( 'Override %s Code Label:', 'product-gtin-ean-upc-isbn-for-woocommerce' ), $this->label );
 
 		woocommerce_wp_text_input(
 			array(
@@ -171,6 +180,7 @@ class WPM_Product_GTIN_WC_Admin {
 				'wrapper_class' => 'form-row form-row-first',
 			)
 		);
+
 	}
 
 	/**
@@ -181,6 +191,9 @@ class WPM_Product_GTIN_WC_Admin {
 	public function save_gtin_product_option( $product ) {
 		if ( isset( $_POST['_wpm_gtin_code'] ) ) {
 			$product->update_meta_data( '_wpm_gtin_code', wc_clean( wp_unslash( $_POST['_wpm_gtin_code'] ) ) );
+		}
+		if ( isset( $_POST['_wpm_gtin_code_label'] ) ) {
+			$product->update_meta_data( '_wpm_gtin_code_label', wc_clean( wp_unslash( $_POST['_wpm_gtin_code_label'] ) ) );
 		}
 	}
 

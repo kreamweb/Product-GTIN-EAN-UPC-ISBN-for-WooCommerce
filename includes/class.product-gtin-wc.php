@@ -130,6 +130,9 @@ class WPM_Product_GTIN_WC {
 
 		//Integration with Google Product Feed
 		add_filter( 'woocommerce_gpf_custom_field_list', array( $this,'wpm_woocommerce_gpf_custom_field_list') );
+
+		//Structured data
+		add_filter( 'woocommerce_structured_data_product', array( $this,'wpm_structured_data_product') );
 	}
 
 	/**
@@ -259,6 +262,23 @@ class WPM_Product_GTIN_WC {
 		}
 
 		return $response;
+	}
+
+	/**
+	 * Add the GTIN code to structured data.
+	 * thanks to @stroykamarketcom
+	 * @param $data
+	 *
+	 * @return mixed
+	 */
+	public function wpm_structured_data_product( $data ) {
+		global $product;
+
+		$property          = apply_filters( 'wpm_structured_data_product_property', get_option( 'wpm_pgw_structured_data_field', 'gtin' ), $product );
+
+		$data[ $property ] = $product->get_meta( '_wpm_gtin_code' );
+
+		return $data;
 	}
 
 }

@@ -47,12 +47,32 @@ if ( ! class_exists( 'WPM_Product_GTIN_WC_Settings', false ) ) :
 				),
 
 
+
+
 				array(
 					'title'    => __( 'Public label of GTIN Code', 'product-gtin-ean-upc-isbn-for-woocommerce' ),
 					'desc'     => __( 'The label that the customers will see on site before the code. (i.e. "EAN Code:", "UPC:", "ISBN-") )', 'product-gtin-ean-upc-isbn-for-woocommerce' ),
 					'id'       => 'wpm_pgw_public_label',
 					'default'  => __( 'EAN:', 'product-gtin-ean-upc-isbn-for-woocommerce' ),
 					'type'     => 'text',
+					'desc_tip' => true,
+				),
+
+				array(
+					'title'    => __( 'Structured data product', 'product-gtin-ean-upc-isbn-for-woocommerce' ),
+					'desc'     => __( 'Choose the structured data property to set.', 'product-gtin-ean-upc-isbn-for-woocommerce' ),
+					'id'       => 'wpm_pgw_structured_data_field',
+					'default'  => 'gtin',
+					'type'     => 'select',
+					'options' => array(
+						'gtin'   => 'gtin',
+						'gtin8'  => 'gtin8',
+						'gtin12' => 'gtin12',
+						'gtin13' => 'gtin13',
+						'gtin14' => 'gtin14',
+						'isbn'   => 'isbn',
+						'mpn'    => 'mpn',
+					),
 					'desc_tip' => true,
 				),
 

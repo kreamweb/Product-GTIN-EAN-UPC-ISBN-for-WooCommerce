@@ -83,11 +83,17 @@ class WPM_Product_GTIN_WC_Frontend {
 	 */
 	public function display_order_item_data( $item, $cart_item_key, $values ) {
 
-		$label = get_option( 'wpm_pgw_label', __('EAN', 'product-gtin-ean-upc-isbn-for-woocommerce' ) );
+		$label = get_option( 'wpm_pgw_public_label', __('EAN', 'product-gtin-ean-upc-isbn-for-woocommerce' ) );
+		$label = substr( $label, - 1 ) == ':' ? str_replace( ':', '', $label ) : $label;
 
 		if ( isset( $values['data'] ) ) {
 			$product = $values['data'];
 			$gtin    = $product->get_meta( '_wpm_gtin_code' );
+			$gtin_label = $product->get_meta( '_wpm_gtin_code_label' );
+
+			$label = empty( $gtin_label) ? $label : $gtin_label;
+			$label = substr( $label, - 1 ) == ':' ? str_replace( ':', '', $label ) : $label;
+
 			if ( !empty( $gtin ) ) {
 				$item->add_meta_data( $label , $gtin );
 			}
@@ -106,7 +112,7 @@ class WPM_Product_GTIN_WC_Frontend {
 
 		echo do_shortcode("[wpm_product_gtin]");
 	}
-	
+
 	/**
 	 * @param $atts array
 	 *
@@ -142,6 +148,9 @@ class WPM_Product_GTIN_WC_Frontend {
 			return '';
 		}
 
+		//check if the label is changed for the current product
+		$override_label = $product->get_meta('_wpm_gtin_code_label');
+		$atts['label'] = empty( $override_label ) ? $atts['label'] : $override_label;
 		$atts = apply_filters('wpm_show_gtin_shortcode_attributes', $atts, $product );
 		ob_start();
 		$this->gtin_code( $product, $atts );
@@ -200,8 +209,10 @@ class WPM_Product_GTIN_WC_Frontend {
 			$product = $cart_item['data'];
 			if ( is_a( $product, 'WC_Product' ) ) {
 				$gtin = $product->get_meta( '_wpm_gtin_code' );
+				$gtin_label = $product->get_meta( '_wpm_gtin_code_label' );
 				if ( ! empty( $gtin ) ) {
-					$label = get_option( 'wpm_pgw_public_label', __(  "Code EAN:", 'product-gtin-ean-upc-isbn-for-woocommerce' ) );
+					$label = empty( $gtin_label ) ? get_option( 'wpm_pgw_public_label', __(  "Code EAN:", 'product-gtin-ean-upc-isbn-for-woocommerce' ) ): $gtin_label;
+
 					//to avoid double ':' char inside the cart.
 					$label = substr( $label, - 1 ) == ':' ? str_replace( ':', '', $label ) : $label;
 					$label = apply_filters( 'wpm_pgw_public_label_on_cart', $label, $cart_item );
