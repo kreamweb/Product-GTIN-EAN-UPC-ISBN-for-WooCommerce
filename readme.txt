@@ -41,6 +41,10 @@ These type of codes are important both for selling and for tracking your product
 * Option to show GTIN code in WooCommerce Order Items.
 * Hide empty GTIN code in your WooCommerce shop.
 * Shortcode available to show GTIN code for a specific product.
+* Support for Schema.org/Product with an option to choose the property name to set inside the structured data
+* Option to choose the position of GTIN code inside the single product page
+* Integrated with the WooCommerce Export Products CVS tool
+* WooCommerce Rest API Product integration: GTIN code is passed inside the 'ean_code' field
 
 
 == Installation ==
@@ -70,6 +74,11 @@ The shortcode to show the GTIN code is `[wpm_product_gtin]` you can use these at
 * `class` the class of wrapper container. By default is 'wpm_gtin'.
 * `class_wrapper` the class of wrapper code container. By default is 'wpm_gtin_code_wrapper'.
 
+= How can use a different GTIN label for specific products? =
+Inside the product editor page, open the “Inventory” tab, and fill out the field
+"Override GTIN Code Label"
+
+
 == Screenshots ==
 1. Settings Options Page of Product GTIN (EAN, UPC, ISBN) for WooCommerce.
 2. Product editor > Inventory > GTIN Code field.
@@ -81,6 +90,10 @@ The shortcode to show the GTIN code is `[wpm_product_gtin]` you can use these at
 8. GTIN code in WooCommerce Order Items.
 9. WooCommerce Product List Page with GTIN Code Column.
 10. Shortcode
+11. WooCommerce Export Products CVS file integration: settings
+12. WooCommerce Export Products CVS file integration: cvs sample
+13. WooCommerce Rest API product detail
+14. WooCommerce product structured data
 
 == Changelog ==
 = 1.0.6 - Released: Jan 5, 2020 =
