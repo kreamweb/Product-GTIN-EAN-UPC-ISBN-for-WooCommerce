@@ -86,8 +86,10 @@ The shortcode to show the GTIN code is `[wpm_product_gtin]` you can use these at
 = 1.0.6 - Released: Jan 5, 2020 =
 *  New: Support for WordPress 5.3
 *  New: Support for WooCommerce 3.9
-*  New: Support for Schema.org/Product, added an option to choose the property name (thanks to @stroykamarketcom)
-
+*  New: Support for Schema.org/Product, added a new option to choose the property name to set inside the structured data (thanks to @stroykamarketcom)
+*  New: New option in product editor Inventory to override the general code label
+*  New: New option to choose the product GTIN position inside the single product page
+*  New: Added the product GTIN field inside the "WooCommerce Export Products CVS file" section. The name of the column is getting from your plugin settings.
 
 = 1.0.5 - Released: Jun 19, 2019 =
 *  New: Support for WordPress 5.2.x
