@@ -281,22 +281,6 @@ class WPM_Product_GTIN_WC_Admin {
 	}
 
 
-	/**
-	 * Add the GTIN code to structured data.
-	 * thanks to @stroykamarketcom
-	 * @param $data
-	 *
-	 * @return mixed
-	 */
-	public function wpm_structured_data_product( $data ) {
-		global $product;
-
-		$property          = apply_filters( 'wpm_structured_data_product_property', get_option( 'wpm_pgw_structured_data_field', 'gtin' ), $product );
-
-		$data[ $property ] = $product->get_meta( '_wpm_gtin_code' );
-
-		return $data;
-	}
 
 	/**
 	 * Add the GTIN field inside the "Export products to a CSV file" as column to export.

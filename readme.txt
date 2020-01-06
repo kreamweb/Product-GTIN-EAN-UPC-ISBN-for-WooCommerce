@@ -6,7 +6,7 @@ Tags: GTIN, EAN, ISBN, UPC, JAN, ITF-14
 Requires at least: 4.0.0
 Requires PHP: 7.0
 Tested up to: 5.3
-Stable tag: 1.0.7
+Stable tag: 1.0.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -98,6 +98,9 @@ Inside the product editor page, open the “Inventory” tab, and fill out the f
 15. WooCommerce product structured data
 
 == Changelog ==
+= 1.0.8 - Released: Jan 6, 2020 =
+* Fix: Fixed the PHP warning
+
 = 1.0.7 - Released: Jan 5, 2020 =
 *  New: Added the product GTIN field inside the "WooCommerce Import products from a CSV file" section. The name of the column is getting from your plugin settings.
 

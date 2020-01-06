@@ -138,6 +138,23 @@ class WPM_Product_GTIN_WC {
 
 
 	/**
+	 * Add the GTIN code to structured data.
+	 * thanks to @stroykamarketcom
+	 * @param $data
+	 *
+	 * @return mixed
+	 */
+	public function wpm_structured_data_product( $data ) {
+		global $product;
+
+		$property          = apply_filters( 'wpm_structured_data_product_property', get_option( 'wpm_pgw_structured_data_field', 'gtin' ), $product );
+
+		$data[ $property ] = $product->get_meta( '_wpm_gtin_code' );
+
+		return $data;
+	}
+
+	/**
      * Integration with Google Product Feed added thanks to Lee Willis.
      *
      * https://gist.github.com/leewillis77/a4043e2b70e0ada39132d52daae00c82
