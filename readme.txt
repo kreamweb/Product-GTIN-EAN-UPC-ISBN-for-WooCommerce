@@ -65,6 +65,12 @@ Product GTIN (EAN, UPC, ISBN) for WooCommerce will add a new tab called "Product
 Inside the product editor page, open the “Inventory” tab, and fill out the GTIN field.
 If your product is variable, you can set a GTIN code for each variation; you can fill out the GTIN field that you'll find inside the variation detail panel.
 
+= Where is stored the GTIN code ? =
+The GTIN code is a private custom field of product with *meta_key* `_wpm_gtin_code`
+If you have the product object you can get the GTIN code in this way:
+
+`$gtin = $product->get_meta('_wpm_gtin_code');`
+
 = How can use the shortcode to show the GTIN code where I want? =
 The shortcode to show the GTIN code is `[wpm_product_gtin]` you can use these attributes:
 
@@ -79,6 +85,15 @@ The shortcode to show the GTIN code is `[wpm_product_gtin]` you can use these at
 Inside the product editor page, open the “Inventory” tab, and fill out the field
 "Override GTIN Code Label"
 
+= How set GTIN code with WooCommerce REST API? =
+When you create or update a product via REST API it is possible set or update the custom meta:
+
+  `"meta_data": [
+    {
+      "key": "_wpm_gtin_code",
+      "value":"123798123987132"
+    }
+  ]`
 
 == Screenshots ==
 1. Settings Options Page of Product GTIN (EAN, UPC, ISBN) for WooCommerce.
@@ -98,6 +113,9 @@ Inside the product editor page, open the “Inventory” tab, and fill out the f
 15. WooCommerce product structured data
 
 == Changelog ==
+= 1.0.9 - Released: 25 April, 2020 =
+*  New: Support for WooCommerce 4.1
+
 = 1.0.8 - Released: Jan 6, 2020 =
 * Fix: Fixed the PHP warning
 
