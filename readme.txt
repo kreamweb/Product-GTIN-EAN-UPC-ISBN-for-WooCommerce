@@ -5,8 +5,8 @@ Donate link: https://paypal.me/pools/c/85ErI7sdcf
 Tags: GTIN, EAN, ISBN, UPC, JAN, ITF-14
 Requires at least: 4.0.0
 Requires PHP: 7.0
-Tested up to: 5.3
-Stable tag: 1.0.8
+Tested up to: 5.5
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -65,6 +65,13 @@ Product GTIN (EAN, UPC, ISBN) for WooCommerce will add a new tab called "Product
 Inside the product editor page, open the “Inventory” tab, and fill out the GTIN field.
 If your product is variable, you can set a GTIN code for each variation; you can fill out the GTIN field that you'll find inside the variation detail panel.
 
+= How can I get a GTIN code for a product? =
+
+Since version 1.1.0 it is possible use the function wpm_get_code_gtin_by_product that need the product id or the product object.
+The function returns the GTIN code as string.
+
+`$gtin = wpm_get_code_gtin_by_product($product_id);`
+
 = Where is stored the GTIN code ? =
 The GTIN code is a private custom field of product with *meta_key* `_wpm_gtin_code`
 If you have the product object you can get the GTIN code in this way:
@@ -113,6 +120,11 @@ When you create or update a product via REST API it is possible set or update th
 15. WooCommerce product structured data
 
 == Changelog ==
+= 1.1.0 - Released: 25 Oct, 2020 =
+*  New: Support for WordPress 5.5
+*  New: Support for WooCommerce 4.7
+*  Dev: New function wpm_get_code_gtin_by_product to get the GTIN code by product id or product
+
 = 1.0.9 - Released: 25 April, 2020 =
 *  New: Support for WooCommerce 4.1
 
