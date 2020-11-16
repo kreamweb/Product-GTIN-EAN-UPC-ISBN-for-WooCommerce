@@ -6,10 +6,12 @@
       $product_id = $form.data("product_id"),
       $code = '';
 
-      if( $product_id ){
-        $code = $body.find(".wpm_pgw_code[data-product-id=" + $product_id + "]");
-      }else{
-        $code = $form.closest('.summary').find('.wpm_pgw_code');
+      if (typeof $product_id !== "undefined") {
+        $code = $body.find(
+          ".wpm_pgw_code[data-product-id=" + $product_id + "]"
+        );
+      } else {
+        $code = $form.closest(".summary").find(".wpm_pgw_code");
       }
      
 
