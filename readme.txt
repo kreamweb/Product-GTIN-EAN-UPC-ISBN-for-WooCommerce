@@ -5,8 +5,8 @@ Donate link: https://paypal.me/pools/c/85ErI7sdcf
 Tags: GTIN, EAN, ISBN, UPC, JAN, ITF-14
 Requires at least: 4.0.0
 Requires PHP: 7.0
-Tested up to: 5.5
-Stable tag: 1.1.0
+Tested up to: 5.6
+Stable tag: 1.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -120,6 +120,10 @@ When you create or update a product via REST API it is possible set or update th
 15. WooCommerce product structured data
 
 == Changelog ==
+= 1.1.1 - Released: 16 Nov, 2020 =
+*  New: Support for WordPress 5.6
+*  Dev: Added attribute product-id inside the wrapper of GTIN code to avoide some issue with Elementor Widget
+
 = 1.1.0 - Released: 25 Oct, 2020 =
 *  New: Support for WordPress 5.5
 *  New: Support for WooCommerce 4.7

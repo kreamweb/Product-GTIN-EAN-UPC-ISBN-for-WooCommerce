@@ -1,16 +1,26 @@
 ( function( $ ) {
     'use strict';
 
-    var $body = $('body'),
-        $form = $('.variations_form'),
-        $code = $form.closest('.summary').find('.wpm_pgw_code'),
-        $reset = $code.length > 0 ? $code.text() : '',
-        $hide = 'yes' == wpm_product_gtin.hide_is_empty ? true : false,
-        $parent_code = $code.parent();
+    var $body = $("body"),
+      $form = $(".variations_form"),
+      $product_id = $form.data("product_id"),
+      $code = '';
 
+      if( $product_id ){
+        $code = $body.find(".wpm_pgw_code[data-product-id=" + $product_id + "]");
+      }else{
+        $code = $form.closest('.summary').find('.wpm_pgw_code');
+      }
+     
+
+    var $reset = $code.length > 0 ? $code.text() : "",
+      $hide = "yes" == wpm_product_gtin.hide_is_empty ? true : false,
+      $parent_code = $code.parent();
+        
     $.fn.wpm_gtin_variations = function() {
 
         $form.on( 'found_variation', function( event, variation ){
+
             if ( variation.wpm_pgw_code ) {
                 $code.text( variation.wpm_pgw_code );
                 $parent_code.show();
