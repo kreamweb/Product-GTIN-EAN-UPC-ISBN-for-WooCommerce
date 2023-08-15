@@ -270,13 +270,16 @@ class WPM_Product_GTIN_WC {
 	 *
 	 * @return mixed
 	 */
-	public function custom_products_api_data( $response, $post ) {
+	// Modify this function to escape shortcode output
+	public function custom_products_api_data($response, $post) {
 		// retrieve a custom field and add it to API response
-		if( is_a( $post, 'WC_Product') ){
-			$response->data['ean_code'] = $post->get_meta( '_wpm_gtin_code' );
+		if (is_a($post, 'WC_Product')) {
+			$ean_code = $post->get_meta('_wpm_gtin_code');
+			$response->data['ean_code'] = esc_html($ean_code); // Escape the output
 		}
 
 		return $response;
 	}
+
 
 }
