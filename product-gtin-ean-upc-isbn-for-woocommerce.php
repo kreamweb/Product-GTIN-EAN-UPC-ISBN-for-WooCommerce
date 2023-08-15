@@ -81,22 +81,24 @@ if (!function_exists('wpm_get_code_gtin_by_product')) {
 	 *
 	 * @return string
 	 */
-	function wpm_get_code_gtin_by_product($product)
-	{
-		if (is_numeric($product)) {
-			$product = wc_get_product($product);
-		}
+// Modify this function to sanitize shortcode output
+function wpm_get_code_gtin_by_product($product)
+{
+    if (is_numeric($product)) {
+        $product = wc_get_product($product);
+    }
 
-		if ($product instanceof WC_Product) {
-			$code = $product->get_meta('_wpm_gtin_code');
-			$parent_id = $product->get_parent_id();
-			if (empty($code) && $parent_id) {
-				return wpm_get_code_gtin_by_product($parent_id);
-			} else {
-				return $code;
-			}
-		}
+    if ($product instanceof WC_Product) {
+        $code = $product->get_meta('_wpm_gtin_code');
+        $parent_id = $product->get_parent_id();
+        if (empty($code) && $parent_id) {
+            return wpm_get_code_gtin_by_product($parent_id);
+        } else {
+            return esc_html($code); // Escape the output
+        }
+    }
 
-		return '';
-	}
+    return '';
+}
+
 }

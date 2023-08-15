@@ -218,6 +218,7 @@ class WPM_Product_GTIN_WC_Frontend {
 		$hide_empty = get_option( 'wpm_pgw_hide_code_empty' );
 		if ( ! empty( $gtin ) || empty( $gtin ) && 'no' == $hide_empty || ( is_single() && $product->is_type( 'variable' ) ) ) {
 			$gtin = ( empty( $gtin ) && 'no' == $hide_empty ) ? esc_html__( 'N/A', 'product-gtin-ean-upc-isbn-for-woocommerce' ) : $gtin;
+			$gtin = esc_html($gtin);
 			$code = sprintf( '<%1$s class="%3$s">%2$s <%4$s class="%5$s wpm_pgw_code" data-product-id="%7$s">%6$s</%4$s></%1$s>', $atts['wrapper'], $atts['label'], esc_attr( $atts['class_wrapper'] ), $atts['wrapper_code'], esc_attr( $atts['class'] ), $gtin, $product->get_id() );
 			echo apply_filters( 'wpm_show_gtin_code', $code, $product, $atts );
 		}
